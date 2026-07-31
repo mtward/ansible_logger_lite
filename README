@@ -1,5 +1,7 @@
 Installation instructions
 
+install the python flask module
+
 mkdir /var/cache/ansible_logs
 chmod 770 /var/cache/ansible_logs
 chown root:ansible_users /var/cache/ansible_logs
