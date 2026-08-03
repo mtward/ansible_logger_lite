@@ -121,6 +121,7 @@
 </div>
 
 <script>
+    const logsApiUrl = {{ url_for('api_logs')|tojson }};
     let currentPage = 1;
     let totalPages = 1;
 
@@ -155,7 +156,7 @@
         });
 
         try {
-            const response = await fetch(`/api/logs?${params.toString()}`);
+            const response = await fetch(`${logsApiUrl}?${params.toString()}`);
             const result = await response.json();
             
             totalPages = result.total_pages;
