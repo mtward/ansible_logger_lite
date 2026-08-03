@@ -3,8 +3,11 @@ import json
 import math
 import datetime
 from flask import Flask, render_template, request, g
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 app = Flask(__name__)
+
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_port=1, x_prefix=1)
 
 DB_PATH = '/var/cache/ansible_logs/logs.db'
 PER_PAGE = 100
